@@ -1,6 +1,7 @@
 package com.j2rvaservud.tluhomeworks.retrofit
 
 import androidx.lifecycle.LiveData
+import com.j2rvaservud.tluhomeworks.model.Group
 import com.j2rvaservud.tluhomeworks.model.Repo
 import com.j2rvaservud.tluhomeworks.model.UserCredentials
 import com.j2rvaservud.tluhomeworks.model.UserToken
@@ -13,7 +14,6 @@ import retrofit2.http.Path
 /**
  * Created by ahmedrizwan on 9/9/17.
  * Retrofit Service class
- * TODO: Add your Web Api Endpoints here!
  */
 interface WebService {
 
@@ -22,5 +22,8 @@ interface WebService {
 
     @GET("users/{login}/repos")
     fun getRepos(@Path("login") login: String): LiveData<ApiResponse<List<Repo>>>
+
+    @GET("groups")
+    fun getGroups(): LiveData<ApiResponse<List<Group>>>
 
 }

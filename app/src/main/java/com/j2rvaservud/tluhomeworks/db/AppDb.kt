@@ -2,8 +2,10 @@ package com.j2rvaservud.tluhomeworks.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.j2rvaservud.tluhomeworks.dao.GroupDao
 import com.j2rvaservud.tluhomeworks.dao.UserDao
 import com.j2rvaservud.tluhomeworks.dao.UserTokenDao
+import com.j2rvaservud.tluhomeworks.model.Group
 import com.j2rvaservud.tluhomeworks.model.Repo
 import com.j2rvaservud.tluhomeworks.model.User
 import com.j2rvaservud.tluhomeworks.model.UserToken
@@ -13,8 +15,9 @@ import com.j2rvaservud.tluhomeworks.model.UserToken
  * Database Class including the Dao
  * TODO: Change the database & dao based on what you want
  */
-@Database(entities = [Repo::class, User::class, UserToken::class], version = 2, exportSchema = false)
+@Database(entities = [Repo::class, User::class, UserToken::class, Group::class], version = 2, exportSchema = false)
 abstract class AppDb : RoomDatabase() {
+    abstract fun groupDao(): GroupDao
     abstract fun repoDao(): RepoDao
     abstract fun userDao(): UserDao
     abstract fun userTokenDao(): UserTokenDao

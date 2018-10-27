@@ -2,6 +2,7 @@ package com.j2rvaservud.tluhomeworks.di
 
 import android.app.Application
 import androidx.room.Room
+import com.j2rvaservud.tluhomeworks.dao.GroupDao
 import com.j2rvaservud.tluhomeworks.dao.UserDao
 import com.j2rvaservud.tluhomeworks.dao.UserTokenDao
 import com.j2rvaservud.tluhomeworks.db.AppDb
@@ -43,6 +44,12 @@ internal class AppModule {
     @Provides
     fun provideRepoDao(db: AppDb): RepoDao {
         return db.repoDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideGroupDao(db: AppDb): GroupDao {
+        return db.groupDao()
     }
 
     @Singleton
